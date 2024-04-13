@@ -8,23 +8,18 @@ import gradient from "gradient-string";
 //generate number between 0 and 9
 let randomNumber = 0;
 // number of lifes
-let lifes = 3;
+let lifes = 6;
 let score = 0;
-
-// console.log(randomNumber);
 
 const displayStats = () => {
   console.clear();
 
-  console.log(
-    gradient.pastel.multiline(
-      `Lifes:${lifes}   ........... <= RANDOM NUBMER GUESSING GAME => ...........   Score:${score}\n`
-    )
-  );
+  const heading = `Lifes:${lifes} <= RANDOM NUBMER GUESSING GAME => Score:${score}\n`;
+  console.log(gradient.pastel.multiline(heading));
 };
 
 const incrementScoreHandler = () => {
-  score = +1;
+  score += 1;
 };
 
 const lostLifeHandler = () => {
@@ -41,10 +36,9 @@ const scoreAndLifeHandler = (number: number) => {
     startGameHandler();
   } else {
     lostLifeHandler();
-
-    console.clear();
     if (lifes === 0) {
-      const message = `Final Score=${score}`;
+      console.clear();
+      const message = `Score = ${score}`;
       figlet(message, (err, result) => {
         console.log(gradient.pastel.multiline(result));
       });
@@ -57,6 +51,8 @@ const scoreAndLifeHandler = (number: number) => {
 const startGameHandler = () => {
   //display the stats of the game
   displayStats();
+  //Generate Randon Number Handler
+  generateRandomNumber();
 
   //user input handler
   inquirer
@@ -65,8 +61,8 @@ const startGameHandler = () => {
         name: "input",
         message:
           lifes === 3
-            ? gradient.pastel.multiline("Please enter a number:")
-            : gradient.pastel.multiline("Please enter a number again:"),
+            ? gradient.pastel.multiline(`Please enter a number:`)
+            : gradient.pastel.multiline(`Please enter a number again:`),
         type: "input",
         validate: (value) => {
           if (value > 9 || value < 0 || isNaN(value)) {
@@ -83,10 +79,10 @@ const startGameHandler = () => {
       },
     ])
     .then((value) => {
-      //Generate Randon Number Handler
-      generateRandomNumber();
       //Score and Life Handler
-      scoreAndLifeHandler(value.input);
+      const userInput = parseInt(value.input);
+
+      scoreAndLifeHandler(userInput);
     })
     .catch((error) => {
       console.log("Error:", error);
