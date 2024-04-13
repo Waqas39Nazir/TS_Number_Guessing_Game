@@ -1,5 +1,5 @@
 {
-  "name": "guess-the-number-game",
+  "name": "@waqas_nazir/guess-the-number-game",
   "version": "1.0.0",
   "description": "The Number Guessing Game",
   "main": "index.js",
