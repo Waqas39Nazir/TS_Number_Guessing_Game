@@ -1,6 +1,6 @@
 {
   "name": "@waqas_nazir/guess-the-number-game",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The Number Guessing Game",
   "main": "index.js",
   "type": "module",
