@@ -52,7 +52,7 @@ const startGameHandler = () => {
         .prompt([
         {
             name: "input",
-            message: lifes === 3
+            message: lifes === 6
                 ? gradient.pastel.multiline(`Please enter a number:`)
                 : gradient.pastel.multiline(`Please enter a number again:`),
             type: "input",

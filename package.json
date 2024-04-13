@@ -1,7 +1,7 @@
 {
-  "name": "number-guessing-game",
+  "name": "guess-the-number-game",
   "version": "1.0.0",
-  "description": "",
+  "description": "The Number Guessing Game",
   "main": "index.js",
   "type": "module",
   "scripts": {

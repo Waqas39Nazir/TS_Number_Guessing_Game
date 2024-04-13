@@ -60,7 +60,7 @@ const startGameHandler = () => {
       {
         name: "input",
         message:
-          lifes === 3
+          lifes === 6
             ? gradient.pastel.multiline(`Please enter a number:`)
             : gradient.pastel.multiline(`Please enter a number again:`),
         type: "input",
